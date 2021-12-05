@@ -3,7 +3,7 @@ import React from 'react';
 function Footer() {
  
     return(
-    <footer>&copy; 2021</footer>
+    <footer>&copy;Dima Alabsi 2021</footer>
     ) 
  
 }
