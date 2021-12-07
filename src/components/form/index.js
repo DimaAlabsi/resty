@@ -1,7 +1,26 @@
 import React from "react";
+import { useState } from "react";
 import './Form.scss';
 
 function Form(myprops) {
+
+  
+  const [url,seturl]=useState('');
+  const [reqBody,setReqBody]=useState({});
+  const [method,setmethod]=useState("get");
+
+
+  
+  const yrlTarget=(e)=>{
+    seturl(e.target.value)
+  }
+  const bodyTarget=(e)=>{
+    setReqBody(e.target.value)
+  };
+  const methodTarget=(e)=>{
+    setmethod(e.target.value)
+  }
+
   const submitForm = (e) => {
     e.preventDefault();
     let reqBody = e.target.text.value;
@@ -42,7 +61,7 @@ function Form(myprops) {
           <br></br>
           <br></br>
 
-          <input name="url"  id="url" type="text" />
+          <input name="url" onChange={yrlTarget} id="url" type="text" />
           <button data-testid="button-test" type="submit">Try ❗</button>
         </label>
         <label className="methods" for="select" > select the method 😄 </label>
@@ -55,7 +74,7 @@ function Form(myprops) {
         
         </select>
         <br></br>
-        <textarea id="text" name="text" ></textarea>
+        <textarea id="text" name="text"  onChange={bodyTarget} ></textarea>
 
       </form>
     </>
