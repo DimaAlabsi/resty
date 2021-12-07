@@ -13,9 +13,15 @@
 
 ***[state sandbox URL](https://z0h9q.csb.app/)***
 
+***[deploy URL using gh-pages](https://dimaalabsi.github.io/resty/)***
 
- base pull request](https://github.com/DimaAlabsi/resty/pull/3)
+---------------------------------------------
+ [base pull request](https://github.com/DimaAlabsi/resty/pull/3)
+
 [State pull request](https://github.com/DimaAlabsi/resty/pull/5)
+[effect-hook pull request](https://github.com/DimaAlabsi/resty/pull/6)
+
+
 
 
 ------------------

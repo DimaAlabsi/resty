@@ -1,60 +1,65 @@
 import React from "react";
-
-import "./App.scss";
+import './App.scss';
+import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
 
 import Header from './components/header';
-import Footer from './components/footer';
 import Form from './components/form';
-import Results from './components/results';
-import axios from 'axios';
+import Results  from './components/results';
+import Footer from './components/footer';
 
-class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-      resultData:[]
-    };
-  }
+export default function App() {
+  const [data,setData]=useState('')
+  const [requestParams,setrequestParams]=useState({})
+const [resultData,setresultData]=useState()
 
-  callApi = (requestParams) => {
-    // method: 'GET', url: 'https://pokeapi.co/api/v2/pokemon'
+useEffect(() => {
+setData(`Method ---> ${requestParams.method}/  url--> ${requestParams.url}` )
+})
+
+
+
+
+const callApi=(requestParams)=>{
+ 
+    
+
+  let url=requestParams.url
+  // method: 'GET', url: 'https://pokeapi.co/api/v2/pokemon'
     let reqBody=requestParams.reqBody
     let method=requestParams.method
-    let url=requestParams.url
-    if(method=='put'||method=='post'){
+    if(method=='post'|| method=='put'){
       axios[method](url,reqBody).then(data=>{
-        this.setState({
-          resultData:data.data,
-          requestParams:requestParams
-        })
+       setresultData(data.data);
+       setrequestParams(requestParams)
+
+
       })
     }else{
       axios[method](url).then(data=>{
-        this.setState({
-          resultData:data.data,
-          requestParams:requestParams
-        })
+        setresultData(data.data);
+        setrequestParams(requestParams)
       })
     }
-
-
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
-        <Form handleApiCall={this.callApi} />
-        <Results data={this.state.resultData} />
-        <Footer />
-      </React.Fragment>
-    );
-  }
+ 
 }
 
-export default App;
+return (
+  <React.Fragment>
+    <Header />
+    <div>Request Method: {requestParams.method}</div>
+    <div>URL: {requestParams.url}</div>
+    <section> Hello from useEffect HOOK ✌️{data}</section>
+    <Form handleApiCall={callApi} />
+    <Results data={resultData} />
+    <Footer />
+  </React.Fragment>
+);
+
+ 
+}
+
+
+
