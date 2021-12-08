@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import './Form.scss';
+import { Input ,Button, Select} from '@chakra-ui/react'
 
 function Form(myprops) {
 
@@ -57,22 +58,26 @@ function Form(myprops) {
        
 
         <label >
-          <span>URL: </span>
+         
           <br></br>
           <br></br>
 
-          <input name="url" onChange={yrlTarget} id="url" type="text" />
-          <button data-testid="button-test" type="submit">Try ❗</button>
+          <Input variant='filled' placeholder='Filled'name="url" onChange={yrlTarget} id="url" type="text" />
+          {/* <input  /> */}
+          {/* <button >Try ❗</button> */}
+          <Button data-testid="button-test" type="submit" colorScheme='pink' variant='solid'>
+           TRY ❗
+  </Button>
         </label>
-        <label className="methods" for="select" > select the method 😄 </label>
-        <select id="select" name="select">
-          <option >choose</option>
+        <label className="methods" for="select" > </label>
+        {/* <select id="select" name="select"> */}
+        <Select id="select"  placeholder="Choose" name="select" size='md'>
           <option id="get" value='get'>GET 📚</option>
           <option id="delete" value='delete'>DELETE❎</option>
           <option id="put" value='put'>PUT 📓</option>
           <option id="post" value='post'>POST 📑</option>
         
-        </select>
+        </Select>
         <br></br>
         <textarea id="text" name="text"  onChange={bodyTarget} ></textarea>
 

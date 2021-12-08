@@ -21,6 +21,9 @@
 [State pull request](https://github.com/DimaAlabsi/resty/pull/5)
 [effect-hook pull request](https://github.com/DimaAlabsi/resty/pull/6)
 
+[reducer-hook pull request](https://github.com/DimaAlabsi/resty/pull/7)
+
+
 
 
 
