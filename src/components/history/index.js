@@ -1,4 +1,4 @@
-import {VStack, Box,Container, Heading } from '@chakra-ui/react';
+import {VStack, Box,Container, Heading,Button } from '@chakra-ui/react';
 export function History(props) {
 
     const historySearching= async(e)=>{
@@ -28,7 +28,10 @@ export function History(props) {
 <Heading size='lg' fontSize='20px'>
           URL  🚶‍♂️ {e.obj.url}
           </Heading>
-            
+          <Button   colorScheme='pink' variant='solid' onClick={() => historySearching(e)}>
+get SEARCH History 💬
+</Button>
+
         </div>
       );
     })
